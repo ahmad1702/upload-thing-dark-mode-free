@@ -61,6 +61,38 @@ export function EffortsList() {
           </CardHeader>
         </Card>
       </div>
+      <div className="p-1">
+        <Card>
+          <CardHeader>
+            <CardTitle>
+              <a
+                className="text-foreground underline"
+                href="https://www.ahmadsandid.com/"
+                target="_blank"
+              >
+                Me
+              </a>
+            </CardTitle>
+            <CardDescription>
+              I{"'"}m the tarnished that created this site.{" "}
+              <a
+                className="text-foreground underline"
+                href="https://github.com/ahmad1702"
+                target="_blank"
+              >
+                Heres my github.
+              </a>{" "}
+              <a
+                className="text-foreground underline"
+                href="https://twitter.com/saivos2"
+                target="_blank"
+              >
+                Heres my twitter.
+              </a>{" "}
+            </CardDescription>
+          </CardHeader>
+        </Card>
+      </div>
     </div>
   );
 }
