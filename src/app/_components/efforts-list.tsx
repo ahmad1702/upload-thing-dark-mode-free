@@ -74,7 +74,9 @@ export function EffortsList() {
               </a>
             </CardTitle>
             <CardDescription>
-              I{"'"}m the tarnished that created this site.{" "}
+              I{"'"}m the tarnished that created this site. My name is Ahmad
+              Sandid, I go by ahmadaccino in your chat. Was a big fan, but you
+              crossed a line.{" "}
               <a
                 className="text-foreground underline"
                 href="https://github.com/ahmad1702"
