@@ -3,19 +3,27 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { api } from "@/trpc/react";
+import { orderBy } from "lodash-es";
 import { useState } from "react";
+import useLocalStorageState from "use-local-storage-state";
 
 const PetitionList = () => {
   const [nameInput, setNameInput] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useLocalStorageState("submitted", {
+    defaultValue: false,
+  });
 
   const petitionListQuery = api.petition.getList.useQuery();
-  const data = (petitionListQuery.data ?? []) as {
-    id: string;
-    name: string | null;
-    createdAt: Date;
-    updatedAt: Date;
-  }[];
+  const data = orderBy(
+    (petitionListQuery.data ?? []) as {
+      id: string;
+      name: string | null;
+      createdAt: Date;
+      updatedAt: Date;
+    }[],
+    "createdAt",
+    "desc",
+  );
 
   const petitionListCteate = api.petition.addEntry.useMutation({
     async onSuccess() {
