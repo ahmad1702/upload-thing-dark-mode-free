@@ -21,6 +21,7 @@ const PetitionList = () => {
     async onSuccess() {
       setNameInput("");
       await petitionListQuery.refetch();
+      setSubmitted(true);
     },
   });
 
@@ -32,7 +33,7 @@ const PetitionList = () => {
 
   return (
     <div className="max-w-7xl">
-      {submitted && (
+      {!submitted && (
         <>
           <h1 className="mb-4 text-xl font-semibold sm:text-5xl">
             Join the petition:
