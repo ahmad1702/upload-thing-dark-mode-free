@@ -1,7 +1,10 @@
 import { unstable_noStore as noStore } from "next/cache";
 
 import ModeToggle from "@/components/mode-toggle";
+import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { GithubIcon } from "lucide-react";
+import Link from "next/link";
 import { EffortsList } from "./_components/efforts-list";
 import PetitionList from "./_components/petition-list";
 
@@ -10,7 +13,14 @@ export default async function Home() {
 
   return (
     <>
-      <ModeToggle className="fixed right-4 top-4" />
+      <div className="fixed right-4 top-4 flex gap-2">
+        <Button variant="outline" asChild>
+          <Link href="https://github.com/ahmad1702/upload-thing-dark-mode-free">
+            <GithubIcon className="h-4" />
+          </Link>
+        </Button>
+        <ModeToggle className="" />
+      </div>
       <main className="flex min-h-screen flex-col items-center justify-center">
         <div className="container space-y-4 px-4 py-16 text-left">
           <div>
