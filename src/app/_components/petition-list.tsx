@@ -2,8 +2,11 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { cn } from "@/lib/utils";
 import { api } from "@/trpc/react";
 import { orderBy } from "lodash-es";
+import { CheckIcon, Loader2Icon } from "lucide-react";
 import { useState } from "react";
 import useLocalStorageState from "use-local-storage-state";
 
@@ -41,14 +44,19 @@ const PetitionList = () => {
 
   return (
     <div className="max-w-7xl">
-      {!submitted && (
-        <>
-          <h1 className="mb-4 text-xl font-semibold sm:text-5xl">
-            Join the petition:
+      {submitted ? (
+        <div className="flex gap-2">
+          <CheckIcon className="mt-2 h-6" />
+          <h1 className="mb-2 text-4xl">
+            Thanks for being a part of the cause.
           </h1>
+        </div>
+      ) : (
+        <>
+          <h1 className="mb-4 text-4xl">Join the petition:</h1>
           <form
             onSubmit={submitPetition}
-            className="grid max-w-2xl gap-2 md:grid-cols-4"
+            className="mb-4 grid max-w-2xl gap-2 md:grid-cols-4"
           >
             <Input
               name="name"
@@ -64,17 +72,33 @@ const PetitionList = () => {
           </form>
         </>
       )}
-      <div className="mt-4 text-2xl font-bold">
+      <div className="mb-4 text-muted-foreground">
         The other brave activists who have joined our cause:
       </div>
       <div>
-        {data.map((listItem) => {
-          return (
-            <div key={listItem.id} className="text-xl font-semibold">
-              {listItem.name}
-            </div>
-          );
-        })}
+        {!petitionListQuery.isLoading ? (
+          <ScrollArea className="h-72 w-full">
+            {data.map((listItem, i) => {
+              return (
+                <div
+                  key={listItem.id}
+                  className={cn(
+                    "p-2 text-xl font-semibold",
+                    i > 0 && "border-t",
+                  )}
+                >
+                  {listItem.name}
+                </div>
+              );
+            })}
+            ;
+          </ScrollArea>
+        ) : (
+          <div className="inline-flex items-center gap-2 rounded bg-muted px-4 py-2">
+            Fetching for fellow tarnished
+            <Loader2Icon className="h-8 animate-spin" />
+          </div>
+        )}
       </div>
     </div>
   );

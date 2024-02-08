@@ -28,7 +28,8 @@ const ModeToggle = (props: ButtonProps) => {
           </AlertDialogTitle>
           <AlertDialogDescription className="text-lg">
             So, it turns out implementing dark mode is hard. Invest in the
-            movement against evil. Invest against Theo. Give us some money
+            movement against evil, and I will implement it soon. Trust me bro.
+            Invest against Theo. Give us some money
           </AlertDialogDescription>
           <h2 className="text-xl font-bold">Pricing</h2>
           <div className="flex gap-2">
@@ -43,7 +44,7 @@ const ModeToggle = (props: ButtonProps) => {
                 <li className="">Not completely a pleb</li>
               </ul>
             </div>
-            <div className="hover:bg-muted hover:border-foreground h-64 w-1/2 cursor-pointer rounded-xl border p-4 duration-300">
+            <div className="h-64 w-1/2 cursor-pointer rounded-xl border p-4 duration-300 hover:border-foreground hover:bg-muted">
               <div className="flex items-center justify-between">
                 <h4 className="text-lg font-bold">100gb Ass Plan</h4>
                 <h4 className="text-lg font-bold">$10</h4>
