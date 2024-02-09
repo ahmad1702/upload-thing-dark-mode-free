@@ -46,7 +46,7 @@ export function EffortsList() {
                   href="https://github.com/ronanru/uploadthing-darkmode"
                   target="_blank"
                 >
-                  Chrome Extension
+                  Chrome and Firefox Extension
                 </a>
               </CardTitle>
               <CardDescription>
@@ -59,7 +59,7 @@ export function EffortsList() {
                   @ronanru
                 </a>{" "}
                 hunted down a browser solution in which you can add dark mode
-                via a chrome extension.
+                via a Chrome or Firefox extension.
               </CardDescription>
             </CardHeader>
           </Card>

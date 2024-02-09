@@ -10,7 +10,7 @@ export default function TheoCard() {
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
-        <span className="text-[hsl(280,100%,70%)] underline">THEO</span>
+        <span className="text-[hsl(280,100%,70%)] underline cursor-pointer">THEO</span>
         {/* <a
           href="https://github.com/pingdotgg/uploadthing/issues/9"
           className="text-[hsl(280,100%,70%)] underline"
