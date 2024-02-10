@@ -89,7 +89,7 @@ export function EffortsList() {
                 </a>{" "}
                 <a
                   className="text-foreground underline"
-                  href="https://twitter.com/saivos2"
+                  href="https://twitter.com/ahmadaccino"
                   target="_blank"
                 >
                   Heres my twitter.
