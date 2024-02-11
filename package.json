@@ -34,6 +34,7 @@
     "date-fns": "^3.3.1",
     "embla-carousel-react": "^8.0.0-rc22",
     "framer-motion": "^11.0.3",
+    "leo-profanity": "^1.7.0",
     "lodash-es": "^4.17.21",
     "lucide-react": "^0.323.0",
     "next": "^14.0.4",
@@ -51,6 +52,7 @@
   "devDependencies": {
     "@types/date-fns": "^2.6.0",
     "@types/eslint": "^8.44.7",
+    "@types/leo-profanity": "^1.5.3",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^18.17.0",
     "@types/react": "^18.2.37",

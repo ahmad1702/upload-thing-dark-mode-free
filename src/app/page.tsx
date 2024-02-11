@@ -5,8 +5,8 @@ import TheoCard from "@/components/ui/theo-card";
 import { GithubIcon } from "lucide-react";
 import Head from "next/head";
 import Link from "next/link";
-import { EffortsList } from "./_components/efforts-list";
-import { MemeList } from "./_components/meme-list";
+import { EffortsList } from "../components/efforts-list";
+import { MemeList } from "../components/meme-list";
 
 export default async function Home() {
   return (
