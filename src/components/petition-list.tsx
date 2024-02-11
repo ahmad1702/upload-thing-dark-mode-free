@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
 import { api } from "@/trpc/react";
-import { orderBy } from "lodash-es";
+import { get, orderBy } from "lodash-es";
 import { CheckIcon, Loader2, Loader2Icon } from "lucide-react";
 import { useEffect, useState } from "react";
 import useLocalStorageState from "use-local-storage-state";
@@ -57,6 +57,8 @@ const PetitionList = ({ canSign }: { canSign: boolean }) => {
       if (error.message === "PROFANITY") {
         setShowProfanityModal(true);
         setHasProfaned(true);
+      } else {
+        setNameInput("");
       }
     },
   });
@@ -74,6 +76,19 @@ const PetitionList = ({ canSign }: { canSign: boolean }) => {
     setShowProfanityModal(false);
     setNameInput("");
   };
+  let signErrorMsg: string | undefined = undefined;
+  try {
+    const signErrorCode = get(
+      JSON.parse(signMutation.error?.message ?? "[]")[0],
+      "code",
+    );
+    if (signErrorCode === "too_big") {
+      signErrorMsg =
+        "Error: Boi if you don't get yo long name out of here. Try again";
+    }
+  } catch (err) {
+    console.error(err);
+  }
 
   return (
     <div className="max-w-7xl">
@@ -112,6 +127,11 @@ const PetitionList = ({ canSign }: { canSign: boolean }) => {
       ) : (
         <>
           <h1 className="mb-4 text-4xl">Join the petition:</h1>
+          {typeof signErrorMsg === "string" && signErrorMsg.length > 0 && (
+            <div className="mb-2 rounded-xl bg-red-400 px-4 py-2 text-sm font-semibold text-white">
+              {signErrorMsg}
+            </div>
+          )}
           <form
             onSubmit={submitPetition}
             className="mb-4 grid max-w-2xl gap-2 md:grid-cols-4"
