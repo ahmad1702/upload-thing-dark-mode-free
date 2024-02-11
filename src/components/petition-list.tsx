@@ -27,7 +27,7 @@ const PetitionList = ({ canSign }: { canSign: boolean }) => {
 
   useEffect(() => {
     const hasSubmitedBefore = localStorage.getItem("submitted");
-    if (hasSubmitedBefore) {
+    if (hasSubmitedBefore === "true") {
       setSubmitted(true);
     }
   }, []);
