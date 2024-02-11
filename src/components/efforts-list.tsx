@@ -4,26 +4,28 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { db } from "@/server/db";
-import { headers } from "next/headers";
 import PetitionList from "./petition-list";
 
 export async function EffortsList() {
-  // Get the client's IP address from the request headers
-  let canSign = true;
-  try {
-    const ip = headers().get("x-forwarded-for");
-    if (ip != null) {
-      const entries = await db.petition.findFirst({
-        where: {
-          ip,
-        },
-      });
-      if (entries !== null) canSign = false;
-    }
-  } catch (error) {
-    console.error("Could not check ip for infringement");
-  }
+  // Get the client's IP address from the request headers.
+  // This protects against people simply reseting localstorage
+  const canSign = true;
+  // Will return this code if we need it in the future
+  // Need a way to make the site still work for vpns
+  // let canSign = true;
+  // try {
+  //   const ip = headers().get("x-forwarded-for");
+  //   if (ip != null) {
+  //     const entries = await db.petition.findFirst({
+  //       where: {
+  //         ip,
+  //       },
+  //     });
+  //     if (entries !== null) canSign = false;
+  //   }
+  // } catch (error) {
+  //   console.error("Could not check ip for infringement");
+  // }
   return (
     <div className="flex w-full flex-col gap-14 lg:flex-row">
       <div className="flex-1 space-y-2">
