@@ -1,6 +1,8 @@
 "use client";
 
 import Meme1 from "@/assets/img/memes/1.png";
+import Meme10 from "@/assets/img/memes/10.jpg";
+import Meme11 from "@/assets/img/memes/11.jpeg";
 import Meme2 from "@/assets/img/memes/2.png";
 import Meme3 from "@/assets/img/memes/3.png";
 import Meme4 from "@/assets/img/memes/4.png";
@@ -23,7 +25,19 @@ import { XIcon } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
-const MEMES = [Meme9, Meme8, Meme7, Meme6, Meme5, Meme4, Meme3, Meme2, Meme1];
+const MEMES = [
+  Meme11,
+  Meme10,
+  Meme9,
+  Meme8,
+  Meme7,
+  Meme6,
+  Meme5,
+  Meme4,
+  Meme3,
+  Meme2,
+  Meme1,
+];
 
 export function MemeList() {
   const [imageToView, setImageToView] = useState<number>();

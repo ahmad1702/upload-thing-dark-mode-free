@@ -89,6 +89,26 @@ export async function EffortsList() {
               <CardTitle>
                 <a
                   className="text-foreground underline"
+                  href="https://darkmode.tax/"
+                  target="_blank"
+                >
+                  The Dark Mode Tax
+                </a>
+              </CardTitle>
+              <CardDescription>
+                A website, like this one, to rebel against Theo, highlighting
+                the absurdity that is UploadThing (I agree with them that its
+                not an accessibility feature tho)
+              </CardDescription>
+            </CardHeader>
+          </Card>
+        </div>
+        <div className="p-1">
+          <Card>
+            <CardHeader>
+              <CardTitle>
+                <a
+                  className="text-foreground underline"
                   href="https://www.ahmadsandid.com/"
                   target="_blank"
                 >
