@@ -3,6 +3,7 @@
 import Meme1 from "@/assets/img/memes/1.png";
 import Meme10 from "@/assets/img/memes/10.jpg";
 import Meme11 from "@/assets/img/memes/11.jpeg";
+import Meme12 from "@/assets/img/memes/12.jpeg";
 import Meme2 from "@/assets/img/memes/2.png";
 import Meme3 from "@/assets/img/memes/3.png";
 import Meme4 from "@/assets/img/memes/4.png";
@@ -26,6 +27,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 const MEMES = [
+  Meme12,
   Meme11,
   Meme10,
   Meme9,
