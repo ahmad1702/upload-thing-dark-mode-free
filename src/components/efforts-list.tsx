@@ -1,10 +1,16 @@
+import avatarSrc from "@/assets/img/ahmad-img.png";
+import xLogoBlack from "@/assets/x-logo-black.png";
 import {
   Card,
   CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import Image from "next/image";
+import Link from "next/link";
+import { Icons } from "./icons";
 import PetitionList from "./petition-list";
+import { Button } from "./ui/button";
 
 export async function EffortsList() {
   // Get the client's IP address from the request headers.
@@ -29,7 +35,7 @@ export async function EffortsList() {
   return (
     <div className="flex w-full flex-col gap-14 lg:flex-row">
       <div className="flex-1 space-y-2">
-        <div className="text-3xl">Great efforts by fellow heroes:</div>
+        <div className="text-3xl">Great efforts by fellow tarnished:</div>
         <div className="p-1">
           <Card>
             <CardHeader>
@@ -107,32 +113,46 @@ export async function EffortsList() {
           <Card>
             <CardHeader>
               <CardTitle>
-                <a
-                  className="text-foreground underline"
-                  href="https://www.ahmadsandid.com/"
-                  target="_blank"
-                >
-                  Me
-                </a>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Image
+                      src={avatarSrc}
+                      alt=""
+                      className="h-16 w-16 rounded-full"
+                    />
+                    <a
+                      className="text-foreground underline"
+                      href="https://twitter.com/ahmadaccino"
+                      target="_blank"
+                    >
+                      Me
+                    </a>
+                  </div>
+                  <div className="flex gap-2">
+                    <Button size="icon" variant="outline" asChild>
+                      <Link href="https://github.com/ahmad1702" target="_blank">
+                        <Icons.gitHub className="w-5" />
+                      </Link>
+                    </Button>
+                    <Button size="icon" variant="outline">
+                      <Link
+                        href="https://twitter.com/ahmadaccino"
+                        target="_blank"
+                      >
+                        <Image
+                          src={xLogoBlack}
+                          alt="x-logo-black"
+                          className="h-5 w-5"
+                        />
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
               </CardTitle>
               <CardDescription>
                 I{"'"}m the tarnished that created this site. My name is Ahmad
                 Sandid, I go by ahmadaccino in your chat. Was a big fan, but you
                 crossed a line.{" "}
-                <a
-                  className="text-foreground underline"
-                  href="https://github.com/ahmad1702"
-                  target="_blank"
-                >
-                  Heres my github.
-                </a>{" "}
-                <a
-                  className="text-foreground underline"
-                  href="https://twitter.com/ahmadaccino"
-                  target="_blank"
-                >
-                  Heres my twitter.
-                </a>{" "}
               </CardDescription>
             </CardHeader>
           </Card>
